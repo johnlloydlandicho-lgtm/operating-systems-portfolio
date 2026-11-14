@@ -1137,7 +1137,7 @@
                   A Hands-on Approach with openEuler
                 </div>
                 <div class="artifact-body">
-                  <span class="status">Artifact 1 ? Huawei course</span>
+                  <span class="status">Nine Chapters Completed | All Chapter Quizzes Passed</span>
                   <h4>Title and Date</h4>
                   <p><strong>Operating System Basics and Practice: A Hands-on Approach with openEuler</strong></p>
                   <p class="date">Course duration:
@@ -1145,7 +1145,7 @@
                     <time datetime="2028-03-04">March 4, 2028</time>
                   </p>
                   <p class="date">Completion date:
-                    <time datetime="2026-11-05T16:39:46">November 5, 2026, 16:39:46</time>
+                    <time datetime="2026-11-05T4:39:46">November 5, 2026, 4:39:46 PM</time>
                   </p>
 
                   <div class="required-evidence" aria-label="Required submission evidence">
@@ -1281,9 +1281,24 @@
                     <section class="submission-evidence" aria-labelledby="exam-heading">
                       <span class="status">Required evidence 02</span>
                       <h5 id="exam-heading">Final Exam Result</h5>
-                      <div class="placeholder">
+                      <!-- Upload the original screenshot as assets/images/openeuler/final-exam.png.
+                           Match the filename and lowercase extension exactly. -->
+                      <figure class="evidence-card" id="final-exam-evidence" hidden>
+                        <a href="assets/images/openeuler/final-exam.png"
+                          target="_blank" rel="noopener noreferrer"
+                          aria-label="View original final examination screenshot (opens a new tab)">
+                          <img
+                            id="final-exam-image"
+                            data-src="assets/images/openeuler/final-exam.png"
+                            alt="Original Huawei openEuler final examination result screenshot"
+                            decoding="async"
+                          />
+                        </a>
+                        <figcaption>Final examination result. Select image for full size.</figcaption>
+                      </figure>
+                      <div class="placeholder" id="final-exam-placeholder">
                         <strong>Final examination screenshot to be added</strong>
-                        <p>The original Huawei openEuler examination screenshot will be placed here.</p>
+                        <p>The original Huawei openEuler examination screenshot will appear here when available.</p>
                       </div>
                     </section>
                   </div>
@@ -1298,18 +1313,25 @@
                   <p> This activity demonstrates my ability to apply computing knowledge and problem-solving skills to understand operating system concepts and technologies. Through Huawei's openEuler course, I developed foundational knowledge of Linux operating systems, command-line operations, process management, networking, system administration, and embedded operating systems. The course also strengthened my analytical thinking and ability to learn independently, which are essential skills for my development as a future Computer Engineer.</p>
                
                   <h5>Reflection</h5>
-                  <p>Completing the chapter quizzes marks progress in my study of operating systems
-                    and openEuler. The recorded 99% course completion shows my progress through the
-                    course. I recognize that completing the quizzes is one step in developing a
-                    deeper understanding. I plan to review topics I find difficult,
-                    practice Linux commands and administration tasks, and revisit quiz questions to
-                    understand the reasoning behind the answers. This will help me build a stronger
-                    operating systems foundation for my Computer Engineering studies.</p>
+                  <p>Completing Huawei's Operating System Basics and Practice: A Hands-on Approach
+                    with openEuler course was a valuable learning experience that strengthened my
+                    understanding of operating systems and their practical applications. Throughout
+                    the nine chapters, I gained knowledge of Linux fundamentals, command-line
+                    operations, process management, embedded operating systems, networking, and
+                    system administration.</p>
+                  <p>The course helped me develop my technical knowledge, analytical thinking, and
+                    problem-solving skills. Successfully completing all nine chapter quizzes
+                    demonstrated my understanding of the topics covered and reinforced the importance
+                    of continuous learning in technology. Overall, this experience contributed to my
+                    academic growth and provided me with a stronger foundation in operating systems
+                    as a Computer Engineering student.</p>
 
                   <h5>Supporting Evidence</h5>
-                  <p>The required evidence areas are featured above. Optional chapter quiz
-                    screenshots show recorded course progress of 99%. Their original content is
-                    preserved; select an image to view it at full size.</p>
+                  <p>The following screenshots document my successful completion of all nine chapter
+                    quizzes, demonstrating the knowledge and skills I acquired throughout the Huawei
+                    openEuler course.</p>
+                  <p>Chapter completion and quiz results are separate from the final examination;
+                    no passing final examination result is claimed here.</p>
                   <details class="quiz-evidence">
                     <summary>Optional evidence: nine chapter quizzes</summary>
                     <div class="evidence-gallery">
@@ -1534,6 +1556,18 @@
     document.querySelectorAll('.mobile-nav a').forEach(link => {
       link.addEventListener('click', () => { link.closest('details').open = false; });
     });
+
+    // Show the original exam evidence only when its file is available.
+    const examImage = document.getElementById('final-exam-image');
+    examImage.addEventListener('load', () => {
+      document.getElementById('final-exam-evidence').hidden = false;
+      document.getElementById('final-exam-placeholder').hidden = true;
+    });
+    examImage.addEventListener('error', () => {
+      document.getElementById('final-exam-evidence').hidden = true;
+      document.getElementById('final-exam-placeholder').hidden = false;
+    });
+    examImage.src = examImage.dataset.src;
     </script>
   </body>
 </html>
