@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="Operating Systems learning e-portfolio of John Lloyd Landicho, BS Computer Engineering" name="description"/>
+    <title>
+      John Lloyd Landicho | Operating Systems E-Portfolio
+    </title>
+    <style>
+      :root {
+        --navy: #0b1526;
+        --navy2: #122541;
+        --blue: #5cafff;
+        --ink: #14243a;
+        --muted: #61718a;
+        --line: #dce5ef;
+        --bg: #f5f8fc;
+        --white: #fff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: Inter,Segoe UI,Arial,sans-serif;
+        line-height: 1.65;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:focus-visible,button:focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 3px;
+      }
+
+      .wrap {
+        width: min(1100px,calc(100% - 44px));
+        margin: auto;
+      }
+
+      .top {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(11,21,38,.97);
+        color: #fff;
+        box-shadow: 0 1px 18px #06112426;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        min-height: 68px;
+      }
+
+      .logo {
+        font-weight: 800;
+        letter-spacing: .04em;
+      }
+
+      .logo span {
+        color: #76bfff;
+      }
+
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 19px;
+      }
+
+      .links a {
+        font-size: .83rem;
+        color: #d8e2f2;
+      }
+
+      .links a:hover {
+        color: #76bfff;
+      }
+
+      .hero {
+        background: radial-gradient(circle at 85% 20%,#214b79 0,transparent 43%),linear-gradient(130deg,#0b1526,#142c4d);
+        color: #fff;
+        overflow: hidden;
+      }
+
+      .hero-inner {
+        padding: 116px 0 105px;
+        display: grid;
+        grid-template-columns: 1.4fr .6fr;
+        align-items: center;
+        gap: 45px;
+      }
+
+      .eyebrow {
+        color: #83c4ff;
+        text-transform: uppercase;
+        letter-spacing: .2em;
+        font-size: .82rem;
+        font-weight: 700;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.6rem,6vw,5.2rem);
+        letter-spacing: -.045em;
+        line-height: 1.08;
+        margin: 14px 0;
+      }
+
+      .hero p {
+        max-width: 640px;
+        color: #cedbec;
+        font-size: 1.12rem;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .btn {
+        display: inline-block;
+        border: 1px solid #6697c5;
+        padding: 11px 18px;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: .91rem;
+      }
+
+      .btn.primary {
+        background: #69b5ff;
+        color: #061526;
+        border-color: #69b5ff;
+      }
+
+      .btn:hover {
+        filter: brightness(1.08);
+      }
+
+      .hero-mark {
+        height: 270px;
+        border: 1px solid #5182ad60;
+        background: linear-gradient(145deg,#244a70aa,#0b1b2e77);
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 30px 70px #03132666;
+      }
+
+      .hero-mark span {
+        font-size: 6rem;
+        font-weight: 800;
+        color: #9bd4ff;
+        letter-spacing: -.09em;
+      }
+
+      .section {
+        padding: 85px 0;
+      }
+
+      .section.alt {
+        background: #fff;
+      }
+
+      .section-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 25px;
+        margin-bottom: 35px;
+      }
+
+      .kicker {
+        font-size: .76rem;
+        text-transform: uppercase;
+        letter-spacing: .18em;
+        font-weight: 800;
+        color: #2c80ce;
+      }
+
+      .section h2 {
+        font-size: clamp(1.9rem,3vw,2.8rem);
+        letter-spacing: -.035em;
+        line-height: 1.2;
+        margin: 8px 0 12px;
+      }
+
+      .lead {
+        color: var(--muted);
+        max-width: 700px;
+        margin: 0;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3,minmax(0,1fr));
+        gap: 20px;
+      }
+
+      .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 26px;
+        box-shadow: 0 8px 30px #09234d08;
+      }
+
+      .alt .card {
+        background: #fbfdff;
+      }
+
+      .card h3 {
+        margin: 8px 0 9px;
+        font-size: 1.17rem;
+      }
+
+      .card p {
+        color: var(--muted);
+        margin: 0;
+        font-size: .96rem;
+      }
+
+      .icon {
+        font-size: 1.5rem;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 34px;
+        align-items: stretch;
+      }
+
+      .portrait {
+        min-height: 300px;
+        background: linear-gradient(145deg,#e2edfb,#c2d9f5);
+        border: 2px dashed #a4bad6;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+        color: #456079;
+        padding: 20px;
+      }
+
+      .portrait .glyph {
+        font-size: 3rem;
+      }
+
+      .about-copy {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 32px;
+      }
+
+      .about-copy p {
+        margin: 0 0 16px;
+      }
+
+      .pillrow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin: 20px 0;
+      }
+
+      .pill {
+        font-size: .8rem;
+        border: 1px solid #d4e4f4;
+        background: #eff6ff;
+        color: #255882;
+        padding: 6px 12px;
+        border-radius: 40px;
+      }
+
+      .course {
+        margin-bottom: 35px;
+      }
+
+      .course-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        align-items: center;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 15px;
+        margin-bottom: 18px;
+      }
+
+      .course-head h3 {
+        margin: 6px 0 0;
+        font-size: 1.3rem;
+      }
+
+      .artifact-grid {
+        display: grid;
+        grid-template-columns: repeat(2,minmax(0,1fr));
+        gap: 20px;
+      }
+
+      .artifact {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        overflow: hidden;
+      }
+
+      .artifact-banner {
+        min-height: 155px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg,#172941,#315e84);
+        color: #fff;
+        font-weight: 800;
+        font-size: 1.15rem;
+        letter-spacing: .025em;
+        padding: 25px;
+        text-align: center;
+      }
+
+      .artifact-banner.light {
+        background: linear-gradient(135deg,#e8f4ff,#c6e2ff);
+        color: #17476e;
+      }
+
+      .artifact-body {
+        padding: 24px;
+      }
+
+      .artifact-body h4 {
+        font-size: 1.14rem;
+        margin: 0 0 6px;
+      }
+
+      .date {
+        font-size: .78rem;
+        color: #507395;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+
+      .artifact-body h5 {
+        font-size: .84rem;
+        letter-spacing: .03em;
+        color: #244e77;
+        margin: 18px 0 4px;
+      }
+
+      .artifact-body p {
+        font-size: .93rem;
+        color: #52647b;
+        margin: 0;
+      }
+
+      .placeholder {
+        border: 1px dashed #a9bed3;
+        padding: 16px;
+        border-radius: 11px;
+        background: #f6faff;
+        color: #45627b;
+        font-size: .89rem;
+        margin-top: 16px;
+      }
+
+      .placeholder a {
+        color: #116db9;
+        text-decoration: underline;
+      }
+
+      .wide {
+        grid-column: 1/-1;
+      }
+
+      .skills {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .skill {
+        padding: 10px 14px;
+        border-radius: 9px;
+        background: #edf5ff;
+        color: #214c76;
+        font-size: .89rem;
+        font-weight: 650;
+      }
+
+      .footer {
+        background: #0b1526;
+        color: #aebfd1;
+        padding: 38px 0;
+        text-align: center;
+        font-size: .85rem;
+      }
+
+      .footer strong {
+        color: #fff;
+      }
+
+      .muted {
+        font-size: .88rem;
+        color: var(--muted);
+      }
+
+      .note {
+        border-left: 4px solid #69b5ff;
+        background: #eef6ff;
+        padding: 15px 20px;
+        border-radius: 0 10px 10px 0;
+        color: #315576;
+      }
+
+      .stamp {
+        font-size: .78rem;
+        color: #537ba2;
+        background: #eaf4ff;
+        padding: 5px 10px;
+        border-radius: 30px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      @media(max-width:760px) {
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+          padding: 15px 0;
+          gap: 8px;
+        }
+
+        .links {
+          gap: 11px;
+        }
+
+        .links a {
+          font-size: .76rem;
+        }
+
+        .hero-inner {
+          grid-template-columns: 1fr;
+          padding: 76px 0;
+        }
+
+        .hero-mark {
+          display: none;
+        }
+
+        .about-grid,.grid,.artifact-grid,.skills {
+          grid-template-columns: 1fr;
+        }
+
+        .section {
+          padding: 62px 0;
+        }
+
+        .section-top {
+          display: block;
+        }
+
+        .about-copy {
+          padding: 24px;
+        }
+
+        .course-head {
+          align-items: start;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+      }
+
+      @media print {
+        .top {
+          position: static;
+        }
+
+        .hero-inner {
+          padding: 40px 0;
+        }
+
+        .section {
+          padding: 30px 0;
+        }
+
+        .card,.artifact,.about-copy {
+          break-inside: avoid;
+        }
+
+      }
+
+      /* Responsive refinements and accessible interaction */
+      html {
+        scroll-padding-top: 100px;
+      }
+
+      .wrap {
+        width: min(1120px,calc(100% - 48px));
+      }
+
+      .hero-inner {
+        grid-template-columns: minmax(0,1.4fr) minmax(220px,.6fr);
+      }
+
+      .hero-inner>div,.about-copy,.artifact,.card {
+        min-width: 0;
+      }
+
+      .card,.artifact,.about-copy {
+        box-shadow: 0 8px 30px #09234d08;
+      }
+
+      .artifact {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .artifact-body {
+        padding: 28px;
+        flex: 1;
+      }
+
+      .artifact-body h4 {
+        line-height: 1.4;
+      }
+
+      .artifact-body h5 {
+        font-size: .9rem;
+      }
+
+      .artifact-body .placeholder {
+        margin-top: 20px;
+      }
+
+      .artifact-banner {
+        min-height: 150px;
+      }
+
+      .kicker {
+        color: #2165a3;
+      }
+
+      .eyebrow {
+        color: #a3d4ff;
+      }
+
+      .stamp {
+        color: #315d85;
+        white-space: normal;
+      }
+
+      .links a {
+        padding-block: 10px;
+        display: inline-block;
+      }
+
+      .btn {
+        transition: background .18s,box-shadow .18s;
+      }
+
+      .btn:hover {
+        box-shadow: 0 5px 18px #03132635;
+      }
+
+      .skill-list {
+        margin-top: 8px;
+      }
+
+      .status {
+        display: inline-block;
+        margin: 0 0 14px;
+        padding: 4px 10px;
+        border-radius: 6px;
+        background: #edf5ff;
+        color: #315576;
+        font-size: .78rem;
+        font-weight: 700;
+      }
+
+      .placeholder ul {
+        padding-left: 20px;
+        margin: 8px 0 0;
+      }
+
+      .placeholder li+li {
+        margin-top: 6px;
+      }
+
+      .portrait svg {
+        width: 92px;
+        height: 92px;
+        color: #456079;
+      }
+
+      .portrait img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 16px;
+      }
+
+      .skip-link {
+        position: fixed;
+        left: 16px;
+        top: -80px;
+        padding: 12px 18px;
+        background: #fff;
+        color: #14243a;
+        z-index: 100;
+        border-radius: 8px;
+      }
+
+      .skip-link:focus {
+        top: 12px;
+      }
+
+      .mobile-nav {
+        display: none;
+      }
+
+      summary {
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      details[open] summary {
+        margin-bottom: 12px;
+      }
+
+      .engagement-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+
+      .card p+p {
+        margin-top: 12px;
+      }
+
+      img,video {
+        max-width: 100%;
+        height: auto;
+      }
+
+      p,li {
+        overflow-wrap: break-word;
+      }
+
+      @media(min-width:761px) and (max-width:1050px) {
+        .nav {
+          flex-direction: column;
+          gap: 4px;
+          padding: 12px 0;
+        }
+
+        .links {
+          justify-content: center;
+          gap: 16px;
+        }
+
+        html {
+          scroll-padding-top: 130px;
+        }
+
+      }
+
+      @media(max-width:760px) {
+        .wrap {
+          width: calc(100% - 36px);
+        }
+
+        .nav {
+          display: block;
+          padding: 15px 0;
+          min-height: 0;
+        }
+
+        .desktop-nav {
+          display: none;
+        }
+
+        .mobile-nav {
+          display: block;
+          margin-top: 8px;
+        }
+
+        .mobile-nav summary {
+          color: #d8e2f2;
+          padding: 6px 0;
+        }
+
+        .mobile-nav .links {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0 16px;
+        }
+
+        .hero-inner {
+          display: block;
+          padding: 65px 0;
+        }
+
+        .hero-mark {
+          display: none;
+        }
+
+        .hero h1 {
+          font-size: clamp(2.5rem,11vw,4.2rem);
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .about-grid,.artifact-grid,.skills,.engagement-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section {
+          padding: 58px 0;
+        }
+
+        .about-copy,.artifact-body {
+          padding: 24px;
+        }
+
+        .course-head {
+          align-items: flex-start;
+        }
+
+        .portrait {
+          min-height: 240px;
+        }
+
+        html {
+          scroll-padding-top: 125px;
+        }
+
+        .top:has(details[open]) {
+          position: relative;
+        }
+
+      }
+
+      @media(prefers-reduced-motion:reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        * {
+          transition: none!important;
+        }
+
+      }
+
+      @media print {
+        .skip-link,.mobile-nav,.desktop-nav {
+          display: none;
+        }
+
+        .hero-mark {
+          display: none;
+        }
+
+        .hero-inner {
+          display: block;
+        }
+
+        .artifact,.card {
+          box-shadow: none;
+        }
+
+        .artifact-grid,.skills,.engagement-grid {
+          display: block;
+        }
+
+        .artifact,.card {
+          margin-bottom: 16px;
+        }
+
+      }
+      /* Keep the supplied portrait proportional within the About Me column. */
+      .portrait.portrait-photo {
+        padding: 0;
+        min-height: 0;
+        align-self: start;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: var(--white);
+      }
+
+      .portrait-photo img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+      }
+
+      /* Comprehensive course artifact and original screenshot gallery. */
+      .course-artifact {
+        grid-column: 1 / -1;
+      }
+
+      .course-summary {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        margin: 24px 0 12px;
+      }
+
+      .course-summary > div {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--bg);
+        font-size: .88rem;
+      }
+
+      .course-summary strong {
+        color: var(--navy2);
+        font-size: 1.45rem;
+        line-height: 1.3;
+      }
+
+      .summary-label {
+        font-weight: 700;
+        color: #315576;
+      }
+
+      .quiz-evidence {
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+      }
+
+      .evidence-gallery {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .evidence-card {
+        min-width: 0;
+        margin: 0;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--white);
+      }
+
+      .evidence-card img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .evidence-card a {
+        display: block;
+      }
+
+      .evidence-card figcaption {
+        padding: 12px;
+        color: #315576;
+        font-size: .85rem;
+      }
+
+      .evidence-pending {
+        padding: 32px 16px;
+        background: var(--bg);
+        color: #52647b;
+        text-align: center;
+        font-size: .85rem;
+      }
+
+      @media (max-width: 900px) {
+        .evidence-gallery {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 600px) {
+        .course-summary,
+        .evidence-gallery {
+          grid-template-columns: 1fr;
+        }
+
+        .quiz-evidence {
+          padding: 16px;
+        }
+      }
+      /* Keep required submission evidence prominent above optional quizzes. */
+      .required-evidence {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        margin: 24px 0;
+      }
+
+      .submission-evidence {
+        min-width: 0;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-top: 4px solid #315e84;
+        border-radius: 14px;
+        background: var(--bg);
+      }
+
+      .submission-evidence h5 {
+        margin: 0 0 12px;
+        font-size: 1.1rem;
+      }
+
+      .submission-evidence p + p {
+        margin-top: 10px;
+      }
+
+      @media (max-width: 760px) {
+        .required-evidence {
+          grid-template-columns: 1fr;
+        }
+
+        .submission-evidence {
+          padding: 20px;
+        }
+      }
+
+      .presentation-preview {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        margin: 16px 0;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--navy);
+      }
+
+      .recording-fallback {
+        color: #2165a3;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .recordings-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .recording-card {
+        min-width: 0;
+      }
+
+      .recording-card h6 {
+        margin: 0;
+        color: #315576;
+        font-size: 1rem;
+      }
+
+      .presentation-link .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .drive-logo {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+      }
+
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="top">
+      <nav aria-label="Main navigation" class="nav wrap">
+        <a class="logo" href="#home">JL | OS PORTFOLIO</a>
+        <div class="links desktop-nav">
+          <a href="#home">Home</a><a href="#about">About Me</a><a href="#artifacts">Learning
+          Artifacts</a><a href="#skills">Achievements
+          &amp; Skills</a>
+        </div>
+        <details class="mobile-nav">
+          <summary>
+            Menu
+          </summary>
+          <div class="links">
+            <a href="#home">Home</a><a href="#about">About Me</a><a href="#artifacts">Learning
+            Artifacts</a><a href="#skills">Achievements
+            &amp; Skills</a>
+          </div>
+        </details>
+      </nav>
+    </header>
+    <main id="main-content">
+      <section class="hero" id="home">
+        <div class="wrap hero-inner">
+          <div>
+            <div class="eyebrow">
+              CPE C311 · Operating Systems E-Portfolio
+            </div>
+            <h1>
+              John Lloyd<br/>Landicho<span style="color:#79beff">.</span>
+            </h1>
+            <p>
+              <strong>BS Computer Engineering · José Rizal University · Section 301G</strong>
+            </p>
+            <p>
+              Welcome to my Operating Systems e-portfolio. This collection documents my learning in
+              CPE C311 through coursework, supporting evidence, and reflection. Follow my progress
+              as I explore operating system concepts and Linux practice, connecting classroom
+              learning to my engineering goals.
+            </p>
+            <div class="actions">
+              <a class="btn primary" href="#artifacts">Explore My Projects ↓</a><a class="btn"
+              href="#about">Get to Know Me</a>
+            </div>
+          </div>
+          <div aria-hidden="true" class="hero-mark">
+            <span>&lt;/&gt;</span>
+          </div>
+        </div>
+      </section>
+      <section class="section alt" id="about">
+        <div class="wrap">
+          <div class="section-top">
+            <div>
+              <div class="kicker">
+                01 / About Me
+              </div>
+              <h2>
+                Curious about how technology works.
+              </h2>
+              <p class="lead">
+                A brief introduction to my background, interests, and goals.
+              </p>
+            </div>
+          </div>
+          <div class="about-grid">
+            <div class="portrait portrait-photo">
+              <img
+                src="assets/images/portrait.png"
+                alt="Portrait of John Lloyd Landicho"
+                width="1122"
+                height="1402"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="about-copy">
+              <h3>
+                Hello, I'm John Lloyd.
+              </h3>
+              <p>
+                I'm a third-year BS Computer Engineering student at José Rizal University with an
+                interest in both hardware and software. My studies give me opportunities to build
+                circuits, develop programs, explore operating systems, and translate concepts into
+                working solutions.
+              </p>
+              <p>
+                I enjoy practical engineering challenges that involve testing, troubleshooting, and
+                improving a design. My goal is to continue strengthening my technical and
+                communication skills as I prepare for a career in technology.
+              </p>
+              <div class="pillrow">
+                <span class="pill">Programming</span><span class="pill">Digital
+                Electronics</span><span class="pill">Computer Hardware</span><span
+                class="pill">Operating Systems</span><span class="pill">Technology</span>
+              </div>
+              <div class="note">
+                <strong>My goal:</strong> Build a strong engineering foundation through hands-on
+                projects, continued learning, and meaningful collaboration.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="artifacts">
+        <div class="wrap">
+          <div class="section-top">
+            <div>
+              <div class="kicker">
+                02 / Learning Artifacts
+              </div>
+              <h2>
+                Exploring operating systems.
+              </h2>
+              <p class="lead">
+                My Operating Systems coursework for the 1st Semester, SY 2026–2027, organized with
+                descriptions, learning outcomes, and reflections.
+              </p>
+            </div>
+          </div>
+          <div class="course">
+            <div class="course-head">
+              <div>
+                <span class="kicker">1st Semester · SY 2026–2027</span>
+                <h3>
+                  CPE C311 — Operating Systems
+                </h3>
+              </div>
+              <span class="stamp">Course Artifacts</span>
+            </div>
+            <div class="artifact-grid">
+              <article class="artifact course-artifact">
+                <div class="artifact-banner">
+                  Operating System Basics and Practice:<br/>
+                  A Hands-on Approach with openEuler
+                </div>
+                <div class="artifact-body">
+                  <span class="status">Artifact 1 ? Huawei course</span>
+                  <h4>Title and Date</h4>
+                  <p><strong>Operating System Basics and Practice: A Hands-on Approach with openEuler</strong></p>
+                  <p class="date">Course duration:
+                    <time datetime="2025-03-04">March 4, 2025</time> to
+                    <time datetime="2028-03-04">March 4, 2028</time>
+                  </p>
+                  <p class="date">Completion date:
+                    <time datetime="2026-11-05T4:39:46">November 5, 2026, 4:39:46 PM</time>
+                  </p>
+
+                  <div class="required-evidence" aria-label="Required submission evidence">
+                    <section class="submission-evidence" aria-labelledby="presentation-heading">
+                      <span class="status">Required evidence 01</span>
+                      <h5 id="presentation-heading">Recorded Group Huawei Presentation</h5>
+                      <details class="quiz-evidence presentation-recordings">
+                        <summary>Chapter presentation recordings (1-6)</summary>
+                        <div class="recordings-grid">
+                          <section class="recording-card" aria-labelledby="recording-1">
+                            <h6 id="recording-1">Chapter 1 presentation</h6>
+                            <iframe
+                            class="presentation-preview"
+                            src="https://drive.google.com/file/d/1Rj3s18VUc8BQno9fuulkUi4K3ohaMXbR/preview"
+                            title="Chapter 1 Huawei openEuler group presentation video"
+                            loading="lazy"
+                            allow="fullscreen"
+                            allowfullscreen
+                            ></iframe>
+                            <p>
+                              <a class="recording-fallback"
+                              href="https://drive.google.com/file/d/1Rj3s18VUc8BQno9fuulkUi4K3ohaMXbR/view"
+                              target="_blank" rel="noopener noreferrer">
+                              Open Chapter 1 video in Google Drive (new tab)
+                              </a>
+                            </p>
+                          </section>
+                          <section class="recording-card" aria-labelledby="recording-2">
+                            <h6 id="recording-2">Chapter 2 presentation</h6>
+                            <iframe
+                            class="presentation-preview"
+                            src="https://drive.google.com/file/d/1lSQ64EG9y1jb-Ljx_mQ09UGNb2b9Cyo3/preview"
+                            title="Chapter 2 Huawei openEuler group presentation video"
+                            loading="lazy"
+                            allow="fullscreen"
+                            allowfullscreen
+                            ></iframe>
+                            <p>
+                              <a class="recording-fallback"
+                              href="https://drive.google.com/file/d/1lSQ64EG9y1jb-Ljx_mQ09UGNb2b9Cyo3/view"
+                              target="_blank" rel="noopener noreferrer">
+                              Open Chapter 2 video in Google Drive (new tab)
+                              </a>
+                            </p>
+                          </section>
+                          <section class="recording-card" aria-labelledby="recording-3">
+                            <h6 id="recording-3">Chapter 3 presentation</h6>
+                            <iframe
+                            class="presentation-preview"
+                            src="https://drive.google.com/file/d/1TyaULkTfXmfn17sOYC0wM5lyhr0Bkquj/preview"
+                            title="Chapter 3 Huawei openEuler group presentation video"
+                            loading="lazy"
+                            allow="fullscreen"
+                            allowfullscreen
+                            ></iframe>
+                            <p>
+                              <a class="recording-fallback"
+                              href="https://drive.google.com/file/d/1TyaULkTfXmfn17sOYC0wM5lyhr0Bkquj/view"
+                              target="_blank" rel="noopener noreferrer">
+                              Open Chapter 3 video in Google Drive (new tab)
+                              </a>
+                            </p>
+                          </section>
+                          <section class="recording-card" aria-labelledby="recording-4">
+                            <h6 id="recording-4">Chapter 4 presentation</h6>
+                            <iframe
+                            class="presentation-preview"
+                            src="https://drive.google.com/file/d/1Vi616d6jP04XpSQlpIkadi-fX22TMIDy/preview"
+                            title="Chapter 4 Huawei openEuler group presentation video"
+                            loading="lazy"
+                            allow="fullscreen"
+                            allowfullscreen
+                            ></iframe>
+                            <p>
+                              <a class="recording-fallback"
+                              href="https://drive.google.com/file/d/1Vi616d6jP04XpSQlpIkadi-fX22TMIDy/view"
+                              target="_blank" rel="noopener noreferrer">
+                              Open Chapter 4 video in Google Drive (new tab)
+                              </a>
+                            </p>
+                          </section>
+                          <section class="recording-card" aria-labelledby="recording-5">
+                            <h6 id="recording-5">Chapter 5 presentation</h6>
+                            <iframe
+                            class="presentation-preview"
+                            src="https://drive.google.com/file/d/1e76qHz9x7rKREHLA-KqehPVBtLhRds52/preview"
+                            title="Chapter 5 Huawei openEuler group presentation video"
+                            loading="lazy"
+                            allow="fullscreen"
+                            allowfullscreen
+                            ></iframe>
+                            <p>
+                              <a class="recording-fallback"
+                              href="https://drive.google.com/file/d/1e76qHz9x7rKREHLA-KqehPVBtLhRds52/view"
+                              target="_blank" rel="noopener noreferrer">
+                              Open Chapter 5 video in Google Drive (new tab)
+                              </a>
+                            </p>
+                          </section>
+                          <section class="recording-card" aria-labelledby="recording-6">
+                            <h6 id="recording-6">Chapter 6 presentation</h6>
+                            <iframe
+                            class="presentation-preview"
+                            src="https://drive.google.com/file/d/1tjgr0BbarFw6PjiF7qAhmOrB5DAb-cNE/preview"
+                            title="Chapter 6 Huawei openEuler group presentation video"
+                            loading="lazy"
+                            allow="fullscreen"
+                            allowfullscreen
+                            ></iframe>
+                            <p>
+                              <a class="recording-fallback"
+                              href="https://drive.google.com/file/d/1tjgr0BbarFw6PjiF7qAhmOrB5DAb-cNE/view"
+                              target="_blank" rel="noopener noreferrer">
+                              Open Chapter 6 video in Google Drive (new tab)
+                              </a>
+                            </p>
+                          </section>
+                        </div>
+                      </details>
+                      <p class="presentation-link">
+                        <a class="btn" href="https://drive.google.com/drive/folders/1A1VW86nGUJuewrSeKGNPaK5GAYvU6TjZ"
+                          target="_blank" rel="noopener noreferrer">
+                          <svg class="drive-logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path fill="#0F9D58" d="M8 2h8L8 16H0Z"/>
+                            <path fill="#F4B400" d="M16 2l8 14h-8L8 2Z"/>
+                            <path fill="#4285F4" d="M0 16h24l-4 7H4Z"/>
+                          </svg>
+                          Open Presentation Folder (new tab)
+                        </a>
+                      </p>
+                      <p class="muted">Google Drive folder containing the recording.</p>
+                    </section>
+                    <section class="submission-evidence" aria-labelledby="exam-heading">
+                      <span class="status">Required evidence 02</span>
+                      <h5 id="exam-heading">Final Exam Result</h5>
+                      <div class="placeholder">
+                        <strong>Final examination screenshot to be added</strong>
+                        <p>The original Huawei openEuler examination screenshot will be placed here.</p>
+                      </div>
+                    </section>
+                  </div>
+
+                  <h5>Description/Purpose</h5>
+                  <p>This Huawei course introduces operating system fundamentals through openEuler,
+                    covering Linux command-line operations, process management, embedded systems,
+                    networking, and system administration. This artifact brings together the required group presentation recording,
+                    with chapter quizzes available as supporting context.</p>
+
+                  <h5>Learning Outcomes Demonstrated</h5>
+                  <p> This activity demonstrates my ability to apply computing knowledge and problem-solving skills to understand operating system concepts and technologies. Through Huawei's openEuler course, I developed foundational knowledge of Linux operating systems, command-line operations, process management, networking, system administration, and embedded operating systems. The course also strengthened my analytical thinking and ability to learn independently, which are essential skills for my development as a future Computer Engineer.</p>
+               
+                  <h5>Reflection</h5>
+                  <p>Completing the chapter quizzes marks progress in my study of operating systems
+                    and openEuler. The recorded 99% course completion shows my progress through the
+                    course. I recognize that completing the quizzes is one step in developing a
+                    deeper understanding. I plan to review topics I find difficult,
+                    practice Linux commands and administration tasks, and revisit quiz questions to
+                    understand the reasoning behind the answers. This will help me build a stronger
+                    operating systems foundation for my Computer Engineering studies.</p>
+
+                  <h5>Supporting Evidence</h5>
+                  <p>The required evidence areas are featured above. Optional chapter quiz
+                    screenshots show recorded course progress of 99%. Their original content is
+                    preserved; select an image to view it at full size.</p>
+                  <details class="quiz-evidence">
+                    <summary>Optional evidence: nine chapter quizzes</summary>
+                    <div class="evidence-gallery">
+                        <figure class="evidence-card">
+                          <a href="assets/images/openeuler/Q1.png" target="_blank" rel="noopener"
+                            aria-label="View Chapter 1 quiz screenshot at full size (opens a new tab)">
+                            <img
+                              src="assets/images/openeuler/Q1.png"
+                              alt="Chapter 1 quiz: Overview. Highest score 10/10, Pass."
+                              width="1731"
+                              height="983"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </a>
+                          <figcaption>Chapter 1: Overview<br/>
+                            Select image for full size.
+                          </figcaption>
+                        </figure>
+                        <figure class="evidence-card">
+                          <a href="assets/images/openeuler/Q2.png" target="_blank" rel="noopener"
+                            aria-label="View Chapter 2 quiz screenshot at full size (opens a new tab)">
+                            <img
+                              src="assets/images/openeuler/Q2.png"
+                              alt="Chapter 2 quiz: Introduction to OSs. Highest score 16/16, Pass."
+                              width="1727"
+                              height="992"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </a>
+                          <figcaption>Chapter 2: Introduction to OSs<br/>
+                            Select image for full size.
+                          </figcaption>
+                        </figure>
+                        <figure class="evidence-card">
+                          <a href="assets/images/openeuler/Q3.png" target="_blank" rel="noopener"
+                            aria-label="View Chapter 3 quiz screenshot at full size (opens a new tab)">
+                            <img
+                              src="assets/images/openeuler/Q3.png"
+                              alt="Chapter 3 quiz: Getting Started with openEuler. Highest score 16/16, Pass."
+                              width="1751"
+                              height="1006"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </a>
+                          <figcaption>Chapter 3: Getting Started with openEuler<br/>
+                            Select image for full size.
+                          </figcaption>
+                        </figure>
+                        <figure class="evidence-card">
+                          <a href="assets/images/openeuler/Q4.png" target="_blank" rel="noopener"
+                            aria-label="View Chapter 4 quiz screenshot at full size (opens a new tab)">
+                            <img
+                              src="assets/images/openeuler/Q4.png"
+                              alt="Chapter 4 quiz: OS Principles and Practice. Highest score 16/16, Pass."
+                              width="1715"
+                              height="995"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </a>
+                          <figcaption>Chapter 4: OS Principles and Practice<br/>
+                            Select image for full size.
+                          </figcaption>
+                        </figure>
+                        <figure class="evidence-card">
+                          <a href="assets/images/openeuler/Q5.png" target="_blank" rel="noopener"
+                            aria-label="View Chapter 5 quiz screenshot at full size (opens a new tab)">
+                            <img
+                              src="assets/images/openeuler/Q5.png"
+                              alt="Chapter 5 quiz: openEuler Development Environment. Highest score 16/16, Pass."
+                              width="1732"
+                              height="986"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </a>
+                          <figcaption>Chapter 5: openEuler Development Environment<br/>
+                            Select image for full size.
+                          </figcaption>
+                        </figure>
+                        <figure class="evidence-card">
+                          <a href="assets/images/openeuler/Q6.png" target="_blank" rel="noopener"
+                            aria-label="View Chapter 6 quiz screenshot at full size (opens a new tab)">
+                            <img
+                              src="assets/images/openeuler/Q6.png"
+                              alt="Chapter 6 quiz: Embedded OS Development. Highest score 16/16, Pass."
+                              width="1691"
+                              height="977"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </a>
+                          <figcaption>Chapter 6: Embedded OS Development<br/>
+                            Select image for full size.
+                          </figcaption>
+                        </figure>
+                        <figure class="evidence-card">
+                          <a href="assets/images/openeuler/Q7.png" target="_blank" rel="noopener"
+                            aria-label="View Chapter 7 quiz screenshot at full size (opens a new tab)">
+                            <img
+                              src="assets/images/openeuler/Q7.png"
+                              alt="Chapter 7 quiz: Network Basics and Management. Highest score 16/16, Pass."
+                              width="1711"
+                              height="991"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </a>
+                          <figcaption>Chapter 7: Network Basics and Management<br/>
+                            Select image for full size.
+                          </figcaption>
+                        </figure>
+                        <figure class="evidence-card">
+                          <a href="assets/images/openeuler/Q8.png" target="_blank" rel="noopener"
+                            aria-label="View Chapter 8 quiz screenshot at full size (opens a new tab)">
+                            <img
+                              src="assets/images/openeuler/Q8.png"
+                              alt="Chapter 8 quiz: Server OS Management. Highest score 16/16, Pass."
+                              width="1713"
+                              height="977"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </a>
+                          <figcaption>Chapter 8: Server OS Management<br/>
+                            Select image for full size.
+                          </figcaption>
+                        </figure>
+                        <figure class="evidence-card">
+                          <a href="assets/images/openeuler/Q9.png" target="_blank" rel="noopener"
+                            aria-label="View Chapter 9 quiz screenshot at full size (opens a new tab)">
+                            <img
+                              src="assets/images/openeuler/Q9.png"
+                              alt="Chapter 9 quiz: Open Source Innovation within openEuler. Highest score 16/16, Pass."
+                              width="1727"
+                              height="986"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </a>
+                          <figcaption>Chapter 9: Open Source Innovation within openEuler<br/>
+                            Select image for full size.
+                          </figcaption>
+                        </figure>
+                    </div>
+                  </details>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="skills">
+        <div class="wrap">
+          <div class="section-top">
+            <div>
+              <div class="kicker">
+                03 / Achievements &amp; Skills
+              </div>
+              <h2>
+                Skills I'm building.
+              </h2>
+              <p class="lead">
+                Areas for development and self-assessment. Add examples and evidence as you
+                progress; these labels do not certify proficiency.
+              </p>
+            </div>
+          </div>
+          <div class="skills">
+            <div class="card">
+              <h3>
+                Technical Skills
+              </h3>
+              <div class="skill-list">
+                <span class="skill">Programming Fundamentals</span><span class="skill">Linux and
+                Command Line</span><span class="skill">Operating Systems</span><span
+                class="skill">Computer Hardware</span><span class="skill">Circuit
+                Troubleshooting</span><span class="skill">Digital Logic Fundamentals</span>
+              </div>
+            </div>
+            <div class="card">
+              <h3>
+                Professional &amp; Soft Skills
+              </h3>
+              <div class="skill-list">
+                <span class="skill">Problem Solving</span><span class="skill">Critical
+                Thinking</span><span class="skill">Teamwork</span><span
+                class="skill">Communication</span><span class="skill">Adaptability</span><span
+                class="skill">Time Management</span>
+              </div>
+            </div>
+            <div class="card">
+              <h3>
+                Certificates &amp; Achievements
+              </h3>
+
+            </div>
+            <div class="card">
+              <h3>
+                Future Milestones
+              </h3>
+              <p>
+                This section will grow as I complete additional workshops, projects, academic
+                milestones, and engineering experiences.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="wrap">
+        <strong>John Lloyd Landicho</strong><br/>BS Computer Engineering · José Rizal
+        University<br/><span>Academic e-portfolio · Updated November 2026</span>
+      </div>
+    </footer>
+    <script>
+    // Close the mobile menu after navigation; native details works without JavaScript.
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', () => { link.closest('details').open = false; });
+    });
+    </script>
+  </body>
+</html>
